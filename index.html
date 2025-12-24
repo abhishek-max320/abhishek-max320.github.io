@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Flipkart Style Clone</title>
+  <title>Flipkart Style Static Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
     }
 
     body {
@@ -28,21 +28,18 @@
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     }
 
-    .logo-box {
-      line-height: 1.1;
-    }
-
     .logo {
       font-size: 22px;
       font-weight: bold;
       color: #2874f0;
     }
 
-    .logo-box small {
+    .logo small {
       font-size: 12px;
+      display: block;
     }
 
-    .logo-box span {
+    .logo span {
       color: #f9a825;
       font-weight: bold;
     }
@@ -53,7 +50,7 @@
 
     .search-box input {
       width: 100%;
-      padding: 10px 14px;
+      padding: 10px;
       border: none;
       border-radius: 6px;
       background: #f0f5ff;
@@ -61,12 +58,8 @@
 
     .header-actions {
       display: flex;
-      gap: 25px;
+      gap: 20px;
       font-weight: bold;
-    }
-
-    .action {
-      cursor: pointer;
     }
 
 
@@ -89,6 +82,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
+      margin-top: 15px;
     }
 
     .card {
@@ -109,10 +103,10 @@
     .price {
       color: green;
       font-weight: bold;
+      margin: 5px 0;
     }
 
     button {
-      margin-top: 8px;
       padding: 6px 10px;
       background: #2874f0;
       color: #fff;
@@ -120,59 +114,26 @@
       border-radius: 4px;
       cursor: pointer;
     }
-
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      display: none;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-box {
-      background: #fff;
-      padding: 20px;
-      width: 300px;
-      border-radius: 6px;
-    }
-
-    .modal-box input {
-      width: 100%;
-      padding: 8px;
-      margin: 8px 0;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      margin: 6px 0;
-    }
-
-    .cart-item button {
-      background: red;
-    }
   </style>
 </head>
 
 <body>
 
+
   <header class="top-header">
-    <div class="logo-box">
-      <div class="logo">Flipkart</div>
+    <div class="logo">
+      Flipkart
       <small>Explore <span>Plus+</span></small>
     </div>
 
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search for Products, Brands and More" onkeyup="searchProducts()">
+      <input type="text" placeholder="Search for Products, Brands and More">
     </div>
 
     <div class="header-actions">
-      <div class="action" id="loginBtn" onclick="openLogin()">👤 Login</div>
-      <div class="action" onclick="openCart()">🛒 Cart (<b id="cartCount">0</b>)</div>
-      <div class="action">🏪 Become a Seller</div>
-      <div class="action" id="logoutBtn" onclick="logout()" style="display:none">Logout</div>
+      <div>👤 Login</div>
+      <div>🛒 Cart</div>
+      <div>🏪 Seller</div>
     </div>
   </header>
 
@@ -191,21 +152,21 @@
         <img src="https://m.media-amazon.com/images/I/51DZP83wBFL._SY535_.jpg">
         <h4>Sneaker Shoes</h4>
         <p class="price">₹2,999</p>
-        <button onclick="addToCart('Sneaker Shoes')">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
 
       <div class="card">
         <img src="https://m.media-amazon.com/images/I/71g+jlUUJgL._SL1476_.jpg">
         <h4>Wooden Bed</h4>
         <p class="price">₹18,999</p>
-        <button onclick="addToCart('Wooden Bed')">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
 
       <div class="card">
         <img src="https://images-eu.ssl-images-amazon.com/images/I/71mL2bdyRdL._AC_UL165_SR165,165_.jpg">
         <h4>Mixer Grinder</h4>
         <p class="price">₹3,499</p>
-        <button onclick="addToCart('Mixer Grinder')">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
 
     </div>
@@ -220,122 +181,25 @@
         <img src="https://m.media-amazon.com/images/I/61nlVSVh0mL._AC_UY327_FMwebp_QL65_.jpg">
         <h4>Projector</h4>
         <p class="price">₹6,499</p>
-        <button onclick="addToCart('Projector')">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
 
       <div class="card">
         <img src="https://m.media-amazon.com/images/I/911Y2W-XV+L._SL1500_.jpg">
         <h4>Monitor</h4>
         <p class="price">₹8,999</p>
-        <button onclick="addToCart('Monitor')">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
 
       <div class="card">
         <img src="https://m.media-amazon.com/images/I/51OTaH4qmRL._SX522_.jpg">
         <h4>Electronic Chip</h4>
         <p class="price">₹1,299</p>
-        <button onclick="addToCart('Electronic Chip')">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
 
     </div>
   </div>
-
-
-  <div class="modal" id="loginModal">
-    <div class="modal-box">
-      <h3>Login</h3>
-      <input id="email" placeholder="Email">
-      <input id="pass" type="password" placeholder="Password">
-      <button onclick="login()">Login</button>
-    </div>
-  </div>
-
-  <div class="modal" id="cartModal">
-    <div class="modal-box">
-      <h3>Your Cart</h3>
-      <div id="cartItems"></div>
-      <button onclick="closeCart()">Close</button>
-    </div>
-  </div>
-
-  <script>
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let user = localStorage.getItem('user');
-    updateUI();
-
-
-    function searchProducts() {
-      let input = document.getElementById("searchInput").value.toLowerCase();
-      let cards = document.querySelectorAll(".card");
-
-      cards.forEach(card => {
-        let title = card.querySelector("h4").innerText.toLowerCase();
-        card.style.display = title.includes(input) ? "block" : "none";
-      });
-    }
-
-
-    function addToCart(item) {
-      cart.push(item);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateUI();
-    }
-
-    function openCart() {
-      let box = document.getElementById('cartItems');
-      box.innerHTML = '';
-      if (cart.length === 0) {
-        box.innerHTML = '<p>Cart is empty</p>';
-      }
-      cart.forEach((item, i) => {
-        box.innerHTML += `
-      <div class="cart-item">
-        <span>${item}</span>
-        <button onclick="removeItem(${i})">Remove</button>
-      </div>`;
-      });
-      document.getElementById('cartModal').style.display = 'flex';
-    }
-
-    function removeItem(i) {
-      cart.splice(i, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      openCart();
-      updateUI();
-    }
-
-    function closeCart() {
-      document.getElementById('cartModal').style.display = 'none';
-    }
-
-
-    function openLogin() {
-      document.getElementById('loginModal').style.display = 'flex';
-    }
-
-    function login() {
-      if (!email.value || !pass.value) {
-        alert("Enter email & password");
-        return;
-      }
-      localStorage.setItem('user', email.value);
-      user = email.value;
-      document.getElementById('loginModal').style.display = 'none';
-      updateUI();
-    }
-
-    function logout() {
-      localStorage.removeItem('user');
-      user = null;
-      updateUI();
-    }
-
-    function updateUI() {
-      document.getElementById('cartCount').innerText = cart.length;
-      document.getElementById('loginBtn').style.display = user ? 'none' : 'inline';
-      document.getElementById('logoutBtn').style.display = user ? 'inline' : 'none';
-    }
-  </script>
 
 </body>
 
